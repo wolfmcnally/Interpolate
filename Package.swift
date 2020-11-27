@@ -11,11 +11,14 @@ let package = Package(
             targets: ["Interpolate"]),
     ],
     dependencies: [
+        .package(url: "https://github.com/apple/swift-numerics", from: "0.0.7")
     ],
     targets: [
         .target(
             name: "Interpolate",
-            dependencies: []),
+            dependencies: [
+                .product(name: "Numerics", package: "swift-numerics")
+            ]),
         .testTarget(
             name: "InterpolateTests",
             dependencies: ["Interpolate"]),
