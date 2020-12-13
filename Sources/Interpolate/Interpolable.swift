@@ -19,7 +19,7 @@ public protocol ForwardInterpolable {
 /// of themselves can conform to `ReverseInterpolable`.
 public protocol ReverseInterpolable {
     associatedtype Scalar: FloatingPoint
-    func reverseInterpolate(to other: Self, at t: Self) -> Scalar
+    func interpolate(from other: Self, at t: Self) -> Scalar
 }
 
 public protocol Interpolable: ForwardInterpolable, ReverseInterpolable {
@@ -28,7 +28,7 @@ public protocol Interpolable: ForwardInterpolable, ReverseInterpolable {
 
 extension Interpolable {
     @inlinable public func interpolate(from a: (Self, Self), to b: (Self, Self)) -> Self {
-        let scalar = a.0.reverseInterpolate(to: a.1, at: self)
+        let scalar = a.0.interpolate(from: a.1, at: self)
         let value = b.0.interpolate(to: b.1, at: scalar)
         return value
     }
