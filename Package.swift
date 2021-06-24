@@ -11,7 +11,7 @@ let package = Package(
             targets: ["Interpolate"]),
     ],
     dependencies: [
-        .package(url: "https://github.com/apple/swift-numerics", from: "0.0.7")
+        .package(url: "https://github.com/apple/swift-numerics", from: "0.1.0")
     ],
     targets: [
         .target(
