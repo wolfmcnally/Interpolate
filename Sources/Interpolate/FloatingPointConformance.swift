@@ -31,10 +31,6 @@ extension FloatingPoint {
 extension Double: Interpolable { }
 extension Float: Interpolable { }
 
-#if !os(iOS)
-extension Float80: Interpolable { }
-#endif
-
 #if !os(macOS) && !targetEnvironment(macCatalyst)
 @available(iOS 14.0, *)
 extension Float16: Interpolable { }
